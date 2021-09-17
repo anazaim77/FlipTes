@@ -25,7 +25,7 @@ class LoginPage extends Component {
   }
 
   _login = () => {
-    this.props.navigation.replace(screens.job_list);
+    this.props.navigation.replace(screens.txn_list);
   };
 
   render() {

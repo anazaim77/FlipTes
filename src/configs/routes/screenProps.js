@@ -13,6 +13,14 @@ const screenProps = [
     name: screens.register,
     component: Pages.RegisterPage,
   },
+  {
+    name: screens.txn_list,
+    component: Pages.ListTxnPage,
+  },
+  {
+    name: screens.txn_detail,
+    component: Pages.DetailTxnPage,
+  },
 ];
 
 export default screenProps;
