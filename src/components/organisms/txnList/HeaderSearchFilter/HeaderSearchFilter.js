@@ -4,6 +4,7 @@ import {Searchbar, TouchableRipple} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/EvilIcons';
 import Icon2 from 'react-native-vector-icons/Ionicons';
 import {colour, fonts} from '../../../../assets/styles';
+import ButtonRipple from '../../../atoms/button/ButtonRipple';
 import styles from './styles';
 
 const HeaderSearchFilter = () => {
@@ -19,19 +20,10 @@ const HeaderSearchFilter = () => {
         style={styles.input}
         onChangeText={onChangeSearch}
       />
-      <TouchableRipple
-        style={{borderRadius: 2}}
-        onPress={() => console.log('Pressed')}
-        rippleColor="rgba(0, 0, 0, .32)">
-        <View style={styles.boxFilter}>
-          <Text style={styles.textFilter}>urutkan</Text>
-          <Icon2
-            name={'chevron-down-outline'}
-            color={colour.PRIMARY}
-            size={20}
-          />
-        </View>
-      </TouchableRipple>
+      <ButtonRipple>
+        <Text style={styles.textFilter}>urutkan</Text>
+        <Icon2 name={'chevron-down-outline'} color={colour.PRIMARY} size={20} />
+      </ButtonRipple>
     </View>
   );
 };

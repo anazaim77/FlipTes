@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
-import {Card} from 'react-native-paper';
+import {Card, Divider} from 'react-native-paper';
+import NoTxn from '../../../../components/organisms/detailList/NoTxn';
+import SummaryTxn from '../../../../components/organisms/detailList/SummaryTxn';
 import MainContainers from '../../../templates/MainContainers';
 
 class DetailTxnPage extends Component {
@@ -12,11 +14,9 @@ class DetailTxnPage extends Component {
   render() {
     return (
       <MainContainers>
-        <Card>
-          <Card.Content>
-            <Text>Test</Text>
-          </Card.Content>
-        </Card>
+        <NoTxn />
+        <Divider />
+        <SummaryTxn />
       </MainContainers>
     );
   }

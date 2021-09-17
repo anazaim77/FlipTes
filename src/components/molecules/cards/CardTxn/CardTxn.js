@@ -4,12 +4,13 @@ import {Card} from 'react-native-paper';
 import styles from './styles';
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import Octicons from 'react-native-vector-icons/Octicons';
+import TextFromTo from '../../../atoms/text/TextFromTo';
 
 const CardTxn = ({onPress}) => {
   return (
     <Card style={styles.wrapper} onPress={onPress}>
       <View>
-        <View style={styles.boxContent}>
+        {/* <View style={styles.boxContent}>
           <Text style={styles.textTitle}>Permata</Text>
           <Fontisto
             style={{marginHorizontal: 5}}
@@ -17,7 +18,8 @@ const CardTxn = ({onPress}) => {
             size={14}
           />
           <Text style={styles.textTitle}>BNI</Text>
-        </View>
+        </View> */}
+        <TextFromTo />
         <View style={styles.boxContent}>
           <Text style={styles.textContent}>Syifa Salsabyla</Text>
         </View>
