@@ -5,7 +5,7 @@ const styles = StyleSheet.create({
   wrapper: {
     height: 50,
     marginTop: 8,
-    ...FontFamily.reg,
+    ...FontFamily.light,
     // color: 'white',
     // borderRadius: 20,
     // backgroundColor: 'red',

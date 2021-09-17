@@ -15,7 +15,7 @@ const themeInput = {
   },
   fonts: {
     regular: {
-      ...FontFamily.reg,
+      ...FontFamily.light,
     },
   },
 };

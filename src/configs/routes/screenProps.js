@@ -16,10 +16,16 @@ const screenProps = [
   {
     name: screens.txn_list,
     component: Pages.ListTxnPage,
+    options: {
+      header: () => null,
+    },
   },
   {
     name: screens.txn_detail,
     component: Pages.DetailTxnPage,
+    options: {
+      header: () => null,
+    },
   },
 ];
 

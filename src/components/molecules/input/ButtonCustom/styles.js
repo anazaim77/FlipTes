@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
   },
   text: {
     paddingVertical: 3,
-    ...FontFamily.med,
+    ...FontFamily.reg,
     fontSize: 18,
     color: 'white',
   },

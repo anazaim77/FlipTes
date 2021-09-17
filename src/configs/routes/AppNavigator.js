@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={screens.login}>
+      <Stack.Navigator initialRouteName={screens.txn_list}>
         <Stack.Screen name={screens.mainMenu} component={BottomMainTab} />
         {screenProps.map((el, id) => {
           return (
