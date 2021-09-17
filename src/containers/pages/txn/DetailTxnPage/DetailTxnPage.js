@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
+import {Card} from 'react-native-paper';
+import MainContainers from '../../../templates/MainContainers';
 
 class DetailTxnPage extends Component {
   constructor(props) {
@@ -9,9 +11,13 @@ class DetailTxnPage extends Component {
 
   render() {
     return (
-      <View>
-        <Text> DetailTxnPage </Text>
-      </View>
+      <MainContainers>
+        <Card>
+          <Card.Content>
+            <Text>Test</Text>
+          </Card.Content>
+        </Card>
+      </MainContainers>
     );
   }
 }

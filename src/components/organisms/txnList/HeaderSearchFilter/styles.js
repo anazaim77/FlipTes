@@ -8,8 +8,9 @@ const styles = StyleSheet.create({
     height: 50,
     alignItems: 'center',
     borderRadius: 3,
-    margin: 5,
-    paddingHorizontal: 3,
+    marginTop: 5,
+    // margin: 5,
+    // paddingHorizontal: 3,
     paddingRight: 8,
   },
   input: {

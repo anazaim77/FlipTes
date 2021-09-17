@@ -1,7 +1,10 @@
 import React, {Component} from 'react';
 import {View, Text} from 'react-native';
 import HeaderSearchFilter from '../../../../components/organisms/txnList/HeaderSearchFilter';
+import ListTxn from '../../../../components/organisms/txnList/ListTxn';
+import screens from '../../../../configs/routes/screens';
 import MainContainers from '../../../templates/MainContainers';
+import styles from './styles';
 
 class ListTxnPage extends Component {
   constructor(props) {
@@ -9,11 +12,16 @@ class ListTxnPage extends Component {
     this.state = {};
   }
 
+  _goToDetail = id => {
+    this.props.navigation.navigate(screens.txn_detail);
+  };
+
   render() {
     return (
-      <MainContainers>
+      <MainContainers noScroll style={styles.wrapper}>
         <HeaderSearchFilter />
-        <Text> ListTxnPage </Text>
+        <ListTxn goToDetail={this._goToDetail} />
+        {/* <Text> ListTxnPage </Text> */}
       </MainContainers>
     );
   }

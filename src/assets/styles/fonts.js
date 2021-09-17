@@ -41,6 +41,10 @@ export default {
     fontSize: 12,
     ...FontFamily.bold,
   },
+  bold_14: {
+    fontSize: 14,
+    ...FontFamily.bold,
+  },
   bold_24: {
     fontSize: 24,
     ...FontFamily.bold,
