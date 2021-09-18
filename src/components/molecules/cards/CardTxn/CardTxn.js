@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {View, Text} from 'react-native';
 import {Card} from 'react-native-paper';
 import styles from './styles';
@@ -6,19 +6,13 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Octicons from 'react-native-vector-icons/Octicons';
 import TextFromTo from '../../../atoms/text/TextFromTo';
 
-const CardTxn = ({onPress}) => {
+const CardTxn = ({onPress, data, index}) => {
+  const _handlePress = useCallback(() => {
+    if (typeof onPress == 'function') onPress(data.id);
+  }, [onPress, data]);
   return (
-    <Card style={styles.wrapper} onPress={onPress}>
+    <Card style={styles.wrapper} onPress={_handlePress}>
       <View>
-        {/* <View style={styles.boxContent}>
-          <Text style={styles.textTitle}>Permata</Text>
-          <Fontisto
-            style={{marginHorizontal: 5}}
-            name={'arrow-right'}
-            size={14}
-          />
-          <Text style={styles.textTitle}>BNI</Text>
-        </View> */}
         <TextFromTo />
         <View style={styles.boxContent}>
           <Text style={styles.textContent}>Syifa Salsabyla</Text>

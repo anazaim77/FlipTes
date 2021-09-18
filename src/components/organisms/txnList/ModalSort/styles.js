@@ -7,6 +7,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 21,
     paddingHorizontal: 21,
     paddingVertical: 13,
+    borderRadius: 5,
   },
 });
 

@@ -1,9 +1,7 @@
 import React, {useMemo, useState} from 'react';
-import {View, Text, Animated} from 'react-native';
+import {Text, View} from 'react-native';
 import {Divider} from 'react-native-paper';
-import useAnimation, {setAnimation} from '../../../../helper/useAnimation';
 import ButtonRipple from '../../../atoms/button/ButtonRipple';
-import Chips from '../../../atoms/text/Chips';
 import TextFromTo from '../../../atoms/text/TextFromTo';
 import TextLabelVal from '../../../atoms/text/TextLabelVal';
 import styles from './styles';
@@ -38,7 +36,7 @@ const SummaryTxn = () => {
   const [open, setOpen] = useState(false);
   const _handleOpen = () => setOpen(e => !e);
 
-  const Animation = useAnimation({doAnimation: !open, duration: 1000});
+  // const Animation = useAnimation({doAnimation: !open, duration: 1000});
 
   return (
     <React.Fragment>
@@ -51,10 +49,13 @@ const SummaryTxn = () => {
         </View>
       </View>
       {open && (
-        <Animated.View
-          style={[
-            setAnimation({Animation, key: 'maxHeight', output: [400, 0]}),
-          ]}>
+        <View
+          style={
+            [
+              // setAnimation({Animation, key: 'maxHeight', output: [400, 0]}),
+            ]
+          }>
+          {/* <Animated.View */}
           <Divider />
           <View style={styles.wrapper}>
             <View style={styles.boxContent}>
@@ -70,7 +71,8 @@ const SummaryTxn = () => {
               ))}
             </View>
           </View>
-        </Animated.View>
+          {/* </Animated.View> */}
+        </View>
       )}
     </React.Fragment>
   );
