@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
     paddingVertical: 13,
     paddingHorizontal: 13,
   },
+  boxWrap: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
   boxContent: {
     flexDirection: 'row',
     // padding: 3,
