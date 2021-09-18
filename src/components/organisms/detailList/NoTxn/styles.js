@@ -4,12 +4,15 @@ import {colour, fonts} from '../../../../assets/styles';
 const styles = StyleSheet.create({
   wrapper: {
     padding: 13,
-    paddingVertical: 21,
+    paddingVertical: 8,
     backgroundColor: 'white',
+    flexDirection: 'row',
+    alignItems: 'center',
   },
   text: {
     ...fonts.bold_14,
     color: colour.BLACK,
+    // marginRight: 5,
   },
 });
 
