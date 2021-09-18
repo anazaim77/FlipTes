@@ -23,9 +23,7 @@ const screenProps = [
   {
     name: screens.txn_detail,
     component: Pages.DetailTxnPage,
-    options: {
-      header: () => null,
-    },
+    options: {},
   },
 ];
 

@@ -7,9 +7,9 @@ const ListTxn = ({goToDetail}) => {
     <FlatList
       data={[1, 2, 3]}
       renderItem={({item, index}) => (
-        <CardTxn key={index} data={item} onPress={goToDetail} />
+        <CardTxn data={item} onPress={goToDetail} key={index} />
       )}
-      keyExtractor={item => item.id}
+      // keyExtractor={item => item.id}
     />
   );
 };

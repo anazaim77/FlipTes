@@ -1,6 +1,7 @@
-import React, {useMemo} from 'react';
-import {View, Text} from 'react-native';
+import React, {useMemo, useState} from 'react';
+import {View, Text, Animated} from 'react-native';
 import {Divider} from 'react-native-paper';
+import useAnimation, {setAnimation} from '../../../../helper/useAnimation';
 import ButtonRipple from '../../../atoms/button/ButtonRipple';
 import Chips from '../../../atoms/text/Chips';
 import TextFromTo from '../../../atoms/text/TextFromTo';
@@ -34,38 +35,43 @@ const SummaryTxn = () => {
     [],
   );
 
+  const [open, setOpen] = useState(false);
+  const _handleOpen = () => setOpen(e => !e);
+
+  const Animation = useAnimation({doAnimation: !open, duration: 1000});
+
   return (
     <React.Fragment>
       <View style={styles.wrapper}>
         <View style={styles.boxContent}>
           <Text style={styles.text}>{`DETAIL TRANSAKSI`}</Text>
-          <ButtonRipple>
-            <Text style={styles.textFilter}>Lihat</Text>
+          <ButtonRipple onPress={_handleOpen}>
+            <Text style={styles.textFilter}>{open ? 'Tutup' : 'Lihat'}</Text>
           </ButtonRipple>
         </View>
       </View>
-      <Divider />
-      <View style={styles.wrapper}>
-        <View style={styles.boxContent}>
-          <TextFromTo />
-        </View>
-        {/* </View>
-      <View style={styles.wrapper}> */}
-        <View style={styles.boxLabelVal}>
-          {fieldData.map((el, id) => (
-            <TextLabelVal
-              key={id}
-              style={[id % 2 ? styles.evenBox : styles.oddBox]}
-              {...el}
-            />
-          ))}
-          {/* <TextLabelVal style={styles.evenBox} />
-          <TextLabelVal style={styles.oddBox} />
-          <TextLabelVal style={styles.evenBox} />
-          <TextLabelVal style={styles.oddBox} />
-          <TextLabelVal style={styles.evenBox} /> */}
-        </View>
-      </View>
+      {open && (
+        <Animated.View
+          style={[
+            setAnimation({Animation, key: 'maxHeight', output: [400, 0]}),
+          ]}>
+          <Divider />
+          <View style={styles.wrapper}>
+            <View style={styles.boxContent}>
+              <TextFromTo />
+            </View>
+            <View style={styles.boxLabelVal}>
+              {fieldData.map((el, id) => (
+                <TextLabelVal
+                  key={id}
+                  style={[id % 2 ? styles.evenBox : styles.oddBox]}
+                  {...el}
+                />
+              ))}
+            </View>
+          </View>
+        </Animated.View>
+      )}
     </React.Fragment>
   );
 };
