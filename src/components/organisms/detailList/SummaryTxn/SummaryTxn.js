@@ -2,6 +2,7 @@ import React, {useMemo, useState} from 'react';
 import {Text, View} from 'react-native';
 import {Divider} from 'react-native-paper';
 import {DetailTxnContext} from '../../../../containers/pages/txn/DetailTxnPage';
+import {textMoney, textTanggal} from '../../../../helper/textHelper';
 import ButtonRipple from '../../../atoms/button/ButtonRipple';
 import TextFromTo from '../../../atoms/text/TextFromTo';
 import TextLabelVal from '../../../atoms/text/TextLabelVal';
@@ -18,7 +19,7 @@ const SummaryTxn = () => {
       },
       {
         label: 'NOMINAL',
-        value: data?.amount,
+        value: textMoney(data?.amount),
       },
       {
         label: 'BERITA TRANSFER',
@@ -30,7 +31,8 @@ const SummaryTxn = () => {
       },
       {
         label: 'WAKTU DIBUAT',
-        value: data?.created_at,
+        // value: data?.created_at,
+        value: textTanggal(data?.created_at),
       },
     ],
     [data],
