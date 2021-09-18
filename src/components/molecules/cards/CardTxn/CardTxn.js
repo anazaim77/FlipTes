@@ -13,18 +13,21 @@ const CardTxn = ({onPress, data, index}) => {
   return (
     <Card style={styles.wrapper} onPress={_handlePress}>
       <View>
-        <TextFromTo />
+        <TextFromTo
+          sender={data?.sender_bank}
+          benificiary={data?.beneficiary_bank}
+        />
         <View style={styles.boxContent}>
-          <Text style={styles.textContent}>Syifa Salsabyla</Text>
+          <Text style={styles.textContent}>{data?.beneficiary_name}</Text>
         </View>
         <View style={styles.boxContent}>
-          <Text style={styles.textContent}>Rp10.000</Text>
+          <Text style={styles.textContent}>{data?.amount}</Text>
           <Octicons
             style={{marginHorizontal: 3}}
             name={'primitive-dot'}
             size={13}
           />
-          <Text style={styles.textContent}>7 April 2020</Text>
+          <Text style={styles.textContent}>{data?.created_at}</Text>
         </View>
       </View>
     </Card>

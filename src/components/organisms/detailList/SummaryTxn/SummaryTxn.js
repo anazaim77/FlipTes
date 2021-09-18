@@ -1,43 +1,46 @@
 import React, {useMemo, useState} from 'react';
 import {Text, View} from 'react-native';
 import {Divider} from 'react-native-paper';
+import {DetailTxnContext} from '../../../../containers/pages/txn/DetailTxnPage';
 import ButtonRipple from '../../../atoms/button/ButtonRipple';
 import TextFromTo from '../../../atoms/text/TextFromTo';
 import TextLabelVal from '../../../atoms/text/TextLabelVal';
 import styles from './styles';
 
 const SummaryTxn = () => {
+  const {data} = React.useContext(DetailTxnContext);
+
   const fieldData = useMemo(
     () => [
       {
-        label: 'SYIFA SALSABYLA',
-        value: '073718723',
+        label: data?.beneficiary_name,
+        value: data?.account_number,
       },
       {
         label: 'NOMINAL',
-        value: 'Rp10.000',
+        value: data?.amount,
       },
       {
         label: 'BERITA TRANSFER',
-        value: 'Coba m banking',
+        value: data?.remark,
       },
       {
         label: 'KODE UNIK',
-        value: '50',
+        value: data?.unique_code,
       },
       {
         label: 'WAKTU DIBUAT',
-        value: '8 April 2020',
+        value: data?.created_at,
       },
     ],
-    [],
+    [data],
   );
 
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
   const _handleOpen = () => setOpen(e => !e);
 
   // const Animation = useAnimation({doAnimation: !open, duration: 1000});
-
+  // console.log(`data`, data);
   return (
     <React.Fragment>
       <View style={styles.wrapper}>
@@ -59,7 +62,10 @@ const SummaryTxn = () => {
           <Divider />
           <View style={styles.wrapper}>
             <View style={styles.boxContent}>
-              <TextFromTo />
+              <TextFromTo
+                sender={data?.sender_bank}
+                benificiary={data?.beneficiary_bank}
+              />
             </View>
             <View style={styles.boxLabelVal}>
               {fieldData.map((el, id) => (

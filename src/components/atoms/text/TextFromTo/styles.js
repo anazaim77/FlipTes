@@ -10,8 +10,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textTitle: {
-    ...fonts.bold_14,
-    color: colour.BLACK,
+    textTransform: 'capitalize',
   },
 });
 

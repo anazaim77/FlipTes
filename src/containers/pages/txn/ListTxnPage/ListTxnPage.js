@@ -32,7 +32,6 @@ class ListTxnPage extends Component {
         <HeaderSearchFilter />
         <FlatList
           data={all}
-          // ListHeaderComponent={<HeaderSearchFilter />}
           contentContainerStyle={{paddingBottom: 200}}
           renderItem={({item, index}) => (
             <CardTxn data={item} onPress={this._goToDetail} key={index} />

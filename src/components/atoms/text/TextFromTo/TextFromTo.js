@@ -2,13 +2,14 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import styles from './styles';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import TextBold from '../TextBold';
 
-const TextFromTo = () => {
+const TextFromTo = ({sender, benificiary}) => {
   return (
     <View style={styles.boxContent}>
-      <Text style={styles.textTitle}>Permata</Text>
+      <TextBold style={styles.textTitle}>{sender}</TextBold>
       <Fontisto style={{marginHorizontal: 5}} name={'arrow-right'} size={14} />
-      <Text style={styles.textTitle}>BNI</Text>
+      <TextBold style={styles.textTitle}>{benificiary}</TextBold>
     </View>
   );
 };
