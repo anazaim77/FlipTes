@@ -6,13 +6,16 @@ import HeaderSearchFilter from '../../../../components/organisms/txnList/HeaderS
 import ListTxn from '../../../../components/organisms/txnList/ListTxn';
 import {fetch_list_sg} from '../../../../configs/redux/actions/txnActions';
 import screens from '../../../../configs/routes/screens';
+import {searchFind} from '../../../../helper/listHelper';
 import MainContainers from '../../../templates/MainContainers';
 import styles from './styles';
 
 class ListTxnPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      query: '',
+    };
   }
 
   componentDidMount() {
@@ -24,14 +27,22 @@ class ListTxnPage extends Component {
     this.props.navigation.navigate(screens.txn_detail, {id});
   };
 
+  handleChangeQuery = e => {
+    this.setState({query: e});
+  };
+
   render() {
     const {all, queried} = this.props;
+    const {query} = this.state;
     console.log(`all`, all);
     return (
       <MainContainers noScroll style={styles.wrapper}>
-        <HeaderSearchFilter />
+        <HeaderSearchFilter
+          query={query}
+          onChangeQuery={this.handleChangeQuery}
+        />
         <FlatList
-          data={all}
+          data={searchFind(all, query)}
           contentContainerStyle={{paddingBottom: 200}}
           renderItem={({item, index}) => (
             <CardTxn data={item} onPress={this._goToDetail} key={index} />

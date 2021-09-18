@@ -9,10 +9,10 @@ import ModalSort from '../ModalSort';
 import options from '../ModalSort/SORT_OPTION';
 import styles from './styles';
 
-const HeaderSearchFilter = () => {
-  const [searchQuery, setSearchQuery] = React.useState('');
+const HeaderSearchFilter = ({onChangeQuery, query}) => {
+  // const [searchQuery, setSearchQuery] = React.useState('');
 
-  const onChangeSearch = query => setSearchQuery(query);
+  const onChangeSearch = query => onChangeQuery(query);
 
   const [visible, setVisible] = useState(false);
   const _handleVisible = () => setVisible(e => !e);
@@ -25,7 +25,7 @@ const HeaderSearchFilter = () => {
     <View style={styles.wrapper}>
       <Icon name={'search'} color={'#b1b1b1'} size={33} />
       <TextInput
-        value={searchQuery}
+        value={query}
         placeholder={'Cari nama, bank, atau nominal'}
         style={styles.input}
         onChangeText={onChangeSearch}
