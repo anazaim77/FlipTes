@@ -9,7 +9,7 @@ import ModalSort from '../ModalSort';
 import options from '../ModalSort/SORT_OPTION';
 import styles from './styles';
 
-const HeaderSearchFilter = ({onChangeQuery, query}) => {
+const HeaderSearchFilter = ({onChangeQuery, onSort, query}) => {
   // const [searchQuery, setSearchQuery] = React.useState('');
 
   const onChangeSearch = query => onChangeQuery(query);
@@ -18,6 +18,7 @@ const HeaderSearchFilter = ({onChangeQuery, query}) => {
   const _handleVisible = () => setVisible(e => !e);
   const [active, setActive] = useState(options[0]);
   const _handleChange = id => {
+    onSort(options[id].value);
     setActive(options[id]);
     _handleVisible();
   };
