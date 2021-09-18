@@ -26,7 +26,11 @@ const styles = StyleSheet.create({
   textFilter: {
     ...fonts.bold_12,
     color: colour.PRIMARY,
-    textTransform: 'uppercase',
+  },
+
+  modalCont: {
+    backgroundColor: 'white',
+    marginHorizontal: 21,
   },
 });
 

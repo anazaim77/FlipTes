@@ -4,7 +4,9 @@ import {colour, fonts} from '../../../../assets/styles';
 const styles = StyleSheet.create({
   wrapper: {
     borderLeftWidth: 6,
-    borderLeftColor: colour.PRIMARY,
+    // borderLeftColor: colour.PRIMARY,
+    borderColor: colour.PRIMARY,
+    // borderWidth: 1,
     marginTop: 8,
     // marginHorizontal: 8,
     padding: 0,
