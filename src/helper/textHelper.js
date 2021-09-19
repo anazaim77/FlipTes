@@ -12,7 +12,10 @@ export const textBank = (str = '') => {
 
 export const textTanggal = thisDate => {
   if (isEmpty(thisDate)) return '';
-  var date = new Date(thisDate);
+  // sometimes not working
+  // var date = new Date(thisDate);
+  // change '1995-12-17 13:24:00' to format '1995-12-17T13:24:00'
+  var date = new Date(thisDate.split(' ').join('T'));
   var tahun = date.getFullYear();
   var bulan = date.getMonth();
   var tanggal = date.getDate();
@@ -44,6 +47,6 @@ export const textMoney = number => {
     else return [...acc, item];
   }, []);
   // convert array with dot back to string
-  const arrToStr = newArr.reverse().reduce((acc, item) => acc + item, '');
+  const arrToStr = newArr.reverse().join('');
   return `Rp${arrToStr}`;
 };
