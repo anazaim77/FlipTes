@@ -32,6 +32,8 @@ class ListTxnPage extends Component {
   handleRefresh = () => {
     const {fetch_list_sg} = this.props;
     fetch_list_sg();
+    // clean filter
+    this.setState({query: ''});
   };
 
   _goToDetail = id => {
@@ -61,6 +63,7 @@ class ListTxnPage extends Component {
           query={query}
           onChangeQuery={this.handleChangeQuery}
           onSort={this.handleSort}
+          refresh={loadingRefresh}
         />
         {/* {loadingRefresh ? (
           <ActivityIndicator size={'large'} color={colour.PRIMARY} />

@@ -1,6 +1,14 @@
 import {isEmpty} from './dataHelper';
 
-export const textBank = str => {};
+export const textBank = (str = '') => {
+  if (isEmpty(str)) return '';
+  let newStr;
+  // convert to capitalize if words length more than 4 char
+  if (str.length > 4) newStr = str.charAt(0).toUpperCase() + str.slice(1);
+  // convert to uppercase if words length less than 4 char
+  else newStr = str.toUpperCase();
+  return newStr;
+};
 
 export const textTanggal = thisDate => {
   if (isEmpty(thisDate)) return '';

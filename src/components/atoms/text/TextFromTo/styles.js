@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textTitle: {
-    textTransform: 'capitalize',
+    // textTransform: 'capitalize',
   },
 });
 
