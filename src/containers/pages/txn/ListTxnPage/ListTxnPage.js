@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import {ActivityIndicator, FlatList, RefreshControl} from 'react-native';
+import {ActivityIndicator, FlatList, RefreshControl, View} from 'react-native';
 import {connect} from 'react-redux';
-import {colour} from '../../../../assets/styles';
+import {colour, styling} from '../../../../assets/styles';
+import TextReg from '../../../../components/atoms/text/TextReg/TextReg';
 import CardTxn from '../../../../components/molecules/cards/CardTxn';
 import HeaderSearchFilter from '../../../../components/organisms/txnList/HeaderSearchFilter';
 import {fetch_list_sg} from '../../../../configs/redux/actions/txnActions';
@@ -65,6 +66,7 @@ class ListTxnPage extends Component {
           onSort={this.handleSort}
           refresh={loadingRefresh}
         />
+
         {/* {loadingRefresh ? (
           <ActivityIndicator size={'large'} color={colour.PRIMARY} />
         ) : ( */}
@@ -75,6 +77,13 @@ class ListTxnPage extends Component {
               refreshing={loadingRefresh}
               onRefresh={this.handleRefresh}
             />
+          }
+          ListEmptyComponent={
+            loadingRefresh == false && (
+              <View style={styles.boxNotFound}>
+                <TextReg>Data tidak ditemukan</TextReg>
+              </View>
+            )
           }
           data={searchFind(stableSort(all, getSorting(order, orderBy)), query)}
           contentContainerStyle={{paddingBottom: 200}}

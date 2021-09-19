@@ -12,5 +12,9 @@ const styles = StyleSheet.create({
     ...fonts.bold_24,
     color: colour.TEXT.primary,
   },
+  boxNotFound: {
+    ...styling.itemCentered,
+    height: styling.heightScreen - 200,
+  },
 });
 export default styles;

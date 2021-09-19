@@ -5,4 +5,8 @@ export default {
   heightWindow: Math.floor(Dimensions.get('window').height),
   widthScreen: Math.floor(Dimensions.get('screen').width),
   heightScreen: Math.floor(Dimensions.get('screen').height),
+  itemCentered: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
 };
