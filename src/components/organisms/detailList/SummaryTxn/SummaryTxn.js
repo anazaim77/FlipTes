@@ -4,8 +4,10 @@ import {Divider} from 'react-native-paper';
 import {DetailTxnContext} from '../../../../containers/pages/txn/DetailTxnPage';
 import {textMoney, textTanggal} from '../../../../helper/textHelper';
 import ButtonRipple from '../../../atoms/button/ButtonRipple';
+import TextBold from '../../../atoms/text/TextBold';
 import TextFromTo from '../../../atoms/text/TextFromTo';
 import TextLabelVal from '../../../atoms/text/TextLabelVal';
+import TextReg from '../../../atoms/text/TextReg/TextReg';
 import styles from './styles';
 
 const SummaryTxn = () => {
@@ -47,9 +49,11 @@ const SummaryTxn = () => {
     <React.Fragment>
       <View style={styles.wrapper}>
         <View style={styles.boxContent}>
-          <Text style={styles.text}>{`DETAIL TRANSAKSI`}</Text>
+          <TextBold>{`DETAIL TRANSAKSI`}</TextBold>
           <ButtonRipple onPress={_handleOpen}>
-            <Text style={styles.textFilter}>{open ? 'Tutup' : 'Lihat'}</Text>
+            <TextReg style={styles.textFilter}>
+              {open ? 'Tutup' : 'Lihat'}
+            </TextReg>
           </ButtonRipple>
         </View>
       </View>
@@ -63,7 +67,7 @@ const SummaryTxn = () => {
           {/* <Animated.View */}
           <Divider />
           <View style={styles.wrapper}>
-            <View style={styles.boxContent}>
+            <View style={[styles.boxContent, {marginBottom: 3}]}>
               <TextFromTo
                 sender={data?.sender_bank}
                 benificiary={data?.beneficiary_bank}

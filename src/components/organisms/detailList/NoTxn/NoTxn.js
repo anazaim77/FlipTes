@@ -5,6 +5,7 @@ import {IconButton} from 'react-native-paper';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {colour} from '../../../../assets/styles';
 import {DetailTxnContext} from '../../../../containers/pages/txn/DetailTxnPage';
+import TextBold from '../../../atoms/text/TextBold';
 import styles from './styles';
 
 const NoTxn = () => {
@@ -15,7 +16,7 @@ const NoTxn = () => {
   }, [data, onToggleSnackBar]);
   return (
     <View style={styles.wrapper}>
-      <Text style={styles.text}>{`ID TRANSAKSI: #${data?.id}`}</Text>
+      <TextBold>{`ID TRANSAKSI: #${data?.id}`}</TextBold>
       <IconButton
         onPress={copyTxnId}
         icon={() => (

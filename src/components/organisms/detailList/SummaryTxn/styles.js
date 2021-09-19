@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   textFilter: {
-    ...fonts.reg_14,
+    // ...fonts.reg_14,
     color: colour.PRIMARY,
     // textTransform: 'uppercase',
   },

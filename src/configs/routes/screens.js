@@ -5,7 +5,7 @@ const screens = {
   dashboard: 'Dashboard',
   profile: 'Profile',
   txn_list: 'Transaction List',
-  txn_detail: 'Detail Transaction',
+  txn_detail: 'Detail Transaksi',
 };
 
 export default screens;

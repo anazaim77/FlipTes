@@ -1,13 +1,13 @@
 import React, {useCallback} from 'react';
-import {View, Text} from 'react-native';
+import {View} from 'react-native';
 import {Card} from 'react-native-paper';
-import styles from './styles';
-import Fontisto from 'react-native-vector-icons/Fontisto';
 import Octicons from 'react-native-vector-icons/Octicons';
-import TextFromTo from '../../../atoms/text/TextFromTo';
-import {textMoney, textTanggal} from '../../../../helper/textHelper';
 import {getStatus} from '../../../../helper/statusHelper';
+import {textMoney, textTanggal} from '../../../../helper/textHelper';
 import Chips from '../../../atoms/text/Chips/Chips';
+import TextFromTo from '../../../atoms/text/TextFromTo';
+import TextReg from '../../../atoms/text/TextReg';
+import styles from './styles';
 
 const CardTxn = ({onPress, data, index}) => {
   const _handlePress = useCallback(() => {
@@ -25,18 +25,16 @@ const CardTxn = ({onPress, data, index}) => {
             benificiary={data?.beneficiary_bank}
           />
           <View style={styles.boxContent}>
-            <Text style={styles.textContent}>{data?.beneficiary_name}</Text>
+            <TextReg>{data?.beneficiary_name}</TextReg>
           </View>
           <View style={styles.boxContent}>
-            <Text style={styles.textContent}>{textMoney(data?.amount)}</Text>
+            <TextReg>{textMoney(data?.amount)}</TextReg>
             <Octicons
               style={{marginHorizontal: 5}}
               name={'primitive-dot'}
               size={10}
             />
-            <Text style={styles.textContent}>
-              {textTanggal(data?.created_at)}
-            </Text>
+            <TextReg>{textTanggal(data?.created_at)}</TextReg>
           </View>
         </View>
         <Chips status={data?.status} />

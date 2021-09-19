@@ -6,6 +6,7 @@ import Icon2 from 'react-native-vector-icons/Ionicons';
 import {colour, fonts} from '../../../../assets/styles';
 import {isEmpty} from '../../../../helper/dataHelper';
 import ButtonRipple from '../../../atoms/button/ButtonRipple';
+import TextBold from '../../../atoms/text/TextBold';
 import ModalSort from '../ModalSort';
 import options from '../ModalSort/SORT_OPTION';
 import styles from './styles';
@@ -35,7 +36,9 @@ const HeaderSearchFilter = ({onChangeQuery, onSort, query, refresh}) => {
         onChangeText={onChangeSearch}
       />
       <ButtonRipple onPress={_handleVisible}>
-        <Text style={styles.textFilter}>{active?.label}</Text>
+        <TextBold size={12} style={styles.textFilter}>
+          {active?.label}
+        </TextBold>
         <Icon2 name={'chevron-down-outline'} color={colour.PRIMARY} size={20} />
       </ButtonRipple>
       <ModalSort

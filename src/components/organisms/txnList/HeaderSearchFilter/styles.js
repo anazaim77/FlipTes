@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   textFilter: {
-    ...fonts.bold_12,
+    // ...fonts.bold_12,
     color: colour.PRIMARY,
   },
 
