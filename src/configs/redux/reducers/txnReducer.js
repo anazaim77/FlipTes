@@ -12,6 +12,10 @@ export const txnReducer = (state = initialState, action) => {
       return {...state, dataTxn: dataTxn};
     case types.txn.LIST_QUERIED_RD:
       return {...state, list: action.payload};
+    case types.txn.LOADING_LIST_RD:
+      return {...state, loadingRefresh: true};
+    case types.txn.LOADING_LIST_DONE_RD:
+      return {...state, loadingRefresh: false};
     default:
       return state;
   }

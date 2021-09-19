@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {FlatList} from 'react-native';
+import {ActivityIndicator, FlatList, RefreshControl} from 'react-native';
 import {connect} from 'react-redux';
+import {colour} from '../../../../assets/styles';
 import CardTxn from '../../../../components/molecules/cards/CardTxn';
 import HeaderSearchFilter from '../../../../components/organisms/txnList/HeaderSearchFilter';
 import {fetch_list_sg} from '../../../../configs/redux/actions/txnActions';
@@ -10,7 +11,6 @@ import {
   getSorting,
   searchFind,
   stableSort,
-  stableSort2,
 } from '../../../../helper/listHelper';
 import MainContainers from '../../../templates/MainContainers';
 import styles from './styles';
@@ -26,9 +26,13 @@ class ListTxnPage extends Component {
   }
 
   componentDidMount() {
+    this.handleRefresh();
+  }
+
+  handleRefresh = () => {
     const {fetch_list_sg} = this.props;
     fetch_list_sg();
-  }
+  };
 
   _goToDetail = id => {
     this.props.navigation.navigate(screens.txn_detail, {id});
@@ -48,7 +52,7 @@ class ListTxnPage extends Component {
   };
 
   render() {
-    const {all, queried} = this.props;
+    const {all, loadingRefresh} = this.props;
     const {query, order, orderBy} = this.state;
     console.log(`all`, all);
     return (
@@ -58,15 +62,24 @@ class ListTxnPage extends Component {
           onChangeQuery={this.handleChangeQuery}
           onSort={this.handleSort}
         />
+        {/* {loadingRefresh ? (
+          <ActivityIndicator size={'large'} color={colour.PRIMARY} />
+        ) : ( */}
         <FlatList
-          // data={searchFind(all, query)}
+          refreshControl={
+            <RefreshControl
+              colors={[colour.PRIMARY]}
+              refreshing={loadingRefresh}
+              onRefresh={this.handleRefresh}
+            />
+          }
           data={searchFind(stableSort(all, getSorting(order, orderBy)), query)}
-          // data={searchFind(stableSort2(all, order, orderBy), query)}
           contentContainerStyle={{paddingBottom: 200}}
           renderItem={({item, index}) => (
             <CardTxn data={item} onPress={this._goToDetail} key={index} />
           )}
         />
+        {/* )} */}
       </MainContainers>
     );
   }
