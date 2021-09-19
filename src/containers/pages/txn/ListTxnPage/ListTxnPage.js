@@ -57,7 +57,7 @@ class ListTxnPage extends Component {
   render() {
     const {all, loadingRefresh} = this.props;
     const {query, order, orderBy} = this.state;
-    console.log(`all`, all);
+    // console.log(`all`, all);
     return (
       <MainContainers noScroll style={styles.wrapper}>
         <HeaderSearchFilter

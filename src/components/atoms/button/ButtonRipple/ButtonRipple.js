@@ -6,7 +6,7 @@ import styles from './styles';
 const ButtonRipple = ({children, onPress, style}) => {
   const _handlePress = () => {
     if (typeof onPress === 'function') onPress();
-    console.log('Pressed');
+    // console.log('Pressed');
   };
   return (
     <TouchableRipple

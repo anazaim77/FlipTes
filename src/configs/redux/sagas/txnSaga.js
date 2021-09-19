@@ -20,7 +20,7 @@ export function* txnSaga() {
   yield takeLatest(types.txn.FETCH_ALL_SG, function* (action) {
     yield put(set_loading_rd());
     let res = yield call(() => axios.get(BASE_URL_LIST));
-    console.log(`res`, res, action);
+    console.log(`res list`, res, action);
     yield put(
       set_list_all_rd({array: Object.values(res.data), dataTxn: res.data}),
     );

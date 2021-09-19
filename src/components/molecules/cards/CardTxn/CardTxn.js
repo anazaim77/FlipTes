@@ -13,7 +13,6 @@ const CardTxn = ({onPress, data, index}) => {
   const _handlePress = useCallback(() => {
     if (typeof onPress == 'function') onPress(data.id);
   }, [onPress, data]);
-  console.log(`data`, data);
   return (
     <Card
       style={[styles.wrapper, {borderColor: getStatus(data?.status).color}]}
