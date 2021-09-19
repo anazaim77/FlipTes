@@ -17,7 +17,7 @@ export function* txnSaga() {
     let res = yield call(() => axios.get(BASE_URL_LIST));
     console.log(`res`, res, action);
     yield put(
-      set_list_all_rd({array: Object.values(res.data), objData: res.data}),
+      set_list_all_rd({array: Object.values(res.data), dataTxn: res.data}),
     );
   });
 }

@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import CardTxn from '../../../../components/molecules/cards/CardTxn';
 import HeaderSearchFilter from '../../../../components/organisms/txnList/HeaderSearchFilter';
 import {fetch_list_sg} from '../../../../configs/redux/actions/txnActions';
+import {getTxnList} from '../../../../configs/redux/reducers/txnReducer';
 import screens from '../../../../configs/routes/screens';
 import {
   getSorting,
@@ -66,19 +67,14 @@ class ListTxnPage extends Component {
             <CardTxn data={item} onPress={this._goToDetail} key={index} />
           )}
         />
-        {/* <ListTxn
-          allData={all}
-          queriedData={queried}
-          goToDetail={this._goToDetail}
-        /> */}
       </MainContainers>
     );
   }
 }
 
-const mapState = ({txnReducer}) => ({
-  all: txnReducer.list.all,
-  queried: txnReducer.list.queried,
+const mapState = state => ({
+  all: getTxnList(state),
+  loadingRefresh: state.txnReducer.loadingRefresh,
 });
 
 const mapDispatch = {
